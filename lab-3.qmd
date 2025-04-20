@@ -109,6 +109,9 @@ map_data <- world |>
   filter(name != "Antarctica") 
 ```
 
+## Column - Trust in Science 
+
+### Row - Trust in Science Display {height="75%"}
 ```{r, echo=FALSE}
 #| label: 2nd-visual
 #| title: "Map Display of Trust in Science"
@@ -139,6 +142,14 @@ leaflet(data = map_data) |>
   addLegend(pal = pal, values = c(1, 4), title = "Average Trust in Science Index") |> 
   setView(lng = 0, lat = 50, zoom = 1.4)
 ```
+### Row - What is the Trust in Science Index? {height="25%"}
+
+::: {.card title="What is the Trust in Science Index?"}
+This metric aggregates public responses to questions about trust in science and scientists. Individuals sampled within countries received a trust score between **1 (low trust)** and **4 (high trust)**. The colors on the map will indicate the **average** trust in science score for the country.
+:::
+
+## Column - Percentage of Medical Trust
+
 ```{r, echo=FALSE}
 #| label: third-dataset-cleaning
 
@@ -214,6 +225,8 @@ plot <- layout(
 
 plot
 ```
+
+
 # Data
 
 ### Column {.tabset}
