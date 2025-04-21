@@ -1,5 +1,5 @@
 ---
-title: "Trust in Science Analysis (2018)"
+title: "Trust in Science and Medicine Analysis (2018)"
 format: 
   dashboard:
     orientation: columns
@@ -225,7 +225,37 @@ plot <- layout(
 
 plot
 ```
+### Value Box {height="25%"}
+```{r, echo = FALSE}
+overall_mean <- final_dataset_3 |> 
+  summarize(mean_trust = mean(prop_trust_medic) * 100) |> 
+  mutate(mean_trust = round(mean_trust, 0))
 
+overall_science_mean <- final_dataset_2 |> 
+  summarize(mean_sci_trust = mean(avg_trust)) |> 
+  mutate(mean_sci_trust = round(mean_sci_trust, 2))
+```
+
+```{r}
+#| content: valuebox
+#| title: "Overall Average Science Trust Index"
+#| color: pink 
+
+list (
+  value = paste(overall_science_mean$mean_sci_trust)
+)
+```
+
+```{r}
+#| content: valuebox
+#| title: "Overall Average Medical Trust"
+#| color: purple 
+
+
+list (
+  value = paste(overall_mean$mean_trust, "%")
+)
+```
 
 # Data
 
@@ -233,8 +263,6 @@ plot
 
 ```{r}
 #| title: Trust in Science
-
-
 
 final_dataset_2 |>
   mutate(
